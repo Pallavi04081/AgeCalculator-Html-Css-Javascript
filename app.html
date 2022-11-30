@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content= "width = device-width,initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=ege">
+        <title>Html</title>
+<link rel="stylesheet" href="index.css">
+    </head> 
+    <body>
+        <div class="outputContainer">
+       <div class="headingcontainer">Age Calculator</div>
+       <div class="inputclass">
+        <div>
+        <label htmlfor="date">Date
+        <input  type="text" id="date" size="2" placeholder="dd"/></label>
+        <label  htmlfor="month">month
+        <input type="text" id="month" size="2" placeholder="mm"/></label>
+        <label  htmlfor="year">Year
+        <input type="text" id="year" size="4" placeholder="yyy"/></label>
+       </div>
+       <div>
+        <p id="displayText"></p>
+    </div>
+       <div>
+        <button id="Submit" onclick="getDetails()">Submit</button>
+    </div>
+    
+       </div>
+        </div>
+
+        <script>
+           const getDetails = ()=>{
+            var date1 = document.getElementById('date').value;
+            var month = document.getElementById('month').value;
+            var year = document.getElementById('year').value
+            var date = new Date()
+             var d1 = date.getDate()
+             var d2 = date.getMonth()
+             var d3 = date.getFullYear()
+             
+             if(date1.length>2 || month.length<1 || date1==""){
+                document.getElementById("displayText").innerHTML = "please Enter Valid age"
+             }
+             
+              else if(month.length>2 || month.length<1 || month==""){
+                document.getElementById("displayText").innerHTML = "please Enter Valid age"
+             }
+             
+             else if(year.length>4 || year==""){
+                document.getElementById("displayText").innerHTML = "please Enter Valid age"
+             }
+
+             else{
+                var finaldate = date>d1 ? parseInt(date1)-d1 : d1-parseInt(date1)
+             var finalmonth = month>d2 ? parseInt(month)-d2 : d2-parseInt(month)
+             var finalyear =  parseInt(year)-d3;
+             document.getElementById("displayText").innerHTML = `Your Age is ${finalyear} years ${finalmonth} Month ${finaldate} Days`
+             }
+           
+
+             
+           }
+        </script>
+    </body>
+</html>
